@@ -27,10 +27,14 @@
     cd 床邊故事
     ```
 
-3. 啟動本地 HTTP 伺服器：
+3. 
+   啟動本地 HTTP 伺服器 ：
     ```bash
     python3 -m http.server
     ```
+- Ｗindows 用戶可以直接打開 start_server.bat
+- Mac/Linux 用戶可以直接打開 start_server.sh
+  
 
 4. 在瀏覽器中打開以下網址：
     ```
