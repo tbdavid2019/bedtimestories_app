@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>床邊故事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #story-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 40vh;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="story-container">
+        <img id="story-image" src="" alt="故事插圖">
+        <div id="story-text"></div>
+        <button onclick="readStory()">朗讀故事</button>
+        <button onclick="stopReading()">停止</button>
+        <button onclick="nextStory()">下一個故事</button>
+    </div>
+
+    <script>
+        let stories = [];
+        let currentStoryIndex = 0;
+        let speechSynthesis = window.speechSynthesis;
+        let voice = null;
+        let storyInterval;
+
+        fetch('bedtimestories.json')
+            .then(response => response.json())
+            .then(data => {
+                stories = data.stories;
+                loadVoices();
+                displayStory();
+                startAutoNextStory();
+                readStory(); // 自動開始朗讀
+            });
+
+        function loadVoices() {
+            let voices = speechSynthesis.getVoices();
+            for(let i = 0; i < voices.length; i++) {
+                if(voices[i].lang === 'zh-TW') {
+                    voice = voices[i];
+                    break;
+                }
+            }
+        }
+
+        function displayStory() {
+            let story = stories[currentStoryIndex];
+            document.getElementById('story-text').innerText = story.text;
+            document.getElementById('story-image').src = story.image;
+        }
+
+        function readStory() {
+            let story = stories[currentStoryIndex];
+            if (voice) {
+                let utterance = new SpeechSynthesisUtterance(story.text);
+                utterance.voice = voice;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert("未找到適合的語音！");
+            }
+        }
+
+        function stopReading() {
+            speechSynthesis.cancel();
+        }
+
+        function nextStory() {
+            currentStoryIndex = (currentStoryIndex + 1) % stories.length;
+            displayStory();
+            readStory(); // 自動開始朗讀
+        }
+
+        function startAutoNextStory() {
+            storyInterval = setInterval(nextStory, 10000);
+        }
+
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = loadVoices;
+        }
+    </script>
+</body>
+</html>

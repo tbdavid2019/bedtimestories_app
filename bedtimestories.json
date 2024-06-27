@@ -1,0 +1,64 @@
+{
+    "stories": [
+        {
+            "text": "小毛毛蟲孤獨地在大森林裡爬行，不知道自己的身份。",
+            "image": "images/story1.png"
+        },
+        {
+            "text": "他看到一片葉子，葉子的形狀讓他以為找到了同伴。",
+            "image": "images/story2.png"
+        },
+        {
+            "text": "但是葉子不能動，小毛毛蟲感到很困惑。",
+            "image": "images/story3.png"
+        },
+        {
+            "text": "小毛毛蟲繼續前行，看到了一朵花，花瓣和他的身體很像。",
+            "image": "images/story4.png"
+        },
+        {
+            "text": "他試圖和花朵交流，但花朵只是靜靜地站在那裡。",
+            "image": "images/story5.png"
+        },
+        {
+            "text": "小毛毛蟲有些沮喪，但他仍然決定繼續尋找。",
+            "image": "images/story6.png"
+        },
+        {
+            "text": "他遇到了一隻青蛙，青蛙的眼睛像他的黑點。",
+            "image": "images/story7.png"
+        },
+        {
+            "text": "青蛙告訴他，自己不是毛毛蟲的同類。",
+            "image": "images/story8.png"
+        },
+        {
+            "text": "小毛毛蟲有些失望，但他不想放棄。",
+            "image": "images/story9.png"
+        },
+        {
+            "text": "他看到了一隻蜥蜴，蜥蜴的身體和他的很像。",
+            "image": "images/story10.png"
+        },
+        {
+            "text": "蜥蜴告訴小毛毛蟲，毛毛蟲是會變化的。",
+            "image": "images/story11.png"
+        },
+        {
+            "text": "小毛毛蟲聽了蜥蜴的話，心裡感到了一絲希望。",
+            "image": "images/story12.png"
+        },
+        {
+            "text": "最後，小毛毛蟲遇到了一隻美麗的蝴蝶。",
+            "image": "images/story13.png"
+        },
+        {
+            "text": "蝴蝶告訴他，他們曾經都是毛毛蟲，並帶他飛向天空。",
+            "image": "images/story14.png"
+        },
+        {
+            "text": "小毛毛蟲終於明白了自己的身份，變成了一隻美麗的蝴蝶。",
+            "image": "images/story15.png"
+        }
+    ]
+}
